@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use GuzzleHttp\Client as GuzzleClient;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 
 class HomeController extends Controller
 {
@@ -69,7 +69,8 @@ class HomeController extends Controller
         curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
 
         $response = curl_exec($ch);
+        return redirect()->back();
+        //return response::json(['message'=> 'notification send successfully',$response]);
 
-        dd($response);
     }
 }
