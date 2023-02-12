@@ -137,37 +137,6 @@
                 console.log('User Chat Token Error'+ err);
             });
         });
-        /*function sendNotification() {
-            var formData = $('#msgForm').serialize();
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                url: '{{ route("send.push-notification") }}',
-                type: 'POST',
-                data: formData,
-                dataType: 'JSON',
-                success: function (response) {
-                    messaging.onMessage(function(payload) {
-                        const noteTitle = payload.notification.title;
-                        const noteOptions = {
-                            body: payload.notification.body,
-                            icon: payload.notification.icon,
-                        };
-                        //new Notification(noteTitle, noteOptions);
-                        $('#showNotification').append(noteTitle);
-                        $('#showNotification').append(payload.notification.body);
-                        console.log('Notification send successfully');
-                    });
-                },
-                error: function (err) {
-                    console.log('Notification cannot be sent');
-                },
-            });
-        }*/
 
         messaging.onMessage(function(payload) {
             const noteTitle = payload.notification.title;
